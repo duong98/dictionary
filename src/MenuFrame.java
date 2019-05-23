@@ -47,11 +47,11 @@ public class MenuFrame extends JFrame {
         option.addActionListener(e -> searchWord());
 
 
-//        option = new JMenuItem("List favorite Words");
-//        option.setIcon( getImage("list.gif"));
-//        option.setAccelerator( KeyStroke.getKeyStroke("F8"));
-//        mnuDictionary.add(option);
-//        option.addActionListener(e -> listFavoriteWords());
+        option = new JMenuItem("List favorite Words");
+        option.setIcon( getImage("list.gif"));
+        option.setAccelerator( KeyStroke.getKeyStroke("F8"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> listFavoriteWords());
 
         mnuDictionary.addSeparator();
 

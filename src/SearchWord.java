@@ -38,11 +38,8 @@ public class SearchWord extends JFrame {
                         if (w != null) {
                             meaning = w.getMeaning();
                             taMeaning.setText(meaning);
-                            addfavorite.addActionListener(ae -> {
-                                w.setFavorite(true);
-                            });
-                        }
-                        else {
+
+                        } else {
                             JOptionPane.showMessageDialog(SearchWord.this, "Word  Not Found. Please try again!", "Search Word", JOptionPane.INFORMATION_MESSAGE);
                         }
                     } else
@@ -50,6 +47,20 @@ public class SearchWord extends JFrame {
                 }
         );
 
+        addfavorite.addActionListener(ae -> {
+            if (tfWord.getText().length() > 0) {
+
+                Word w = Dictionary.searchWord(tfWord.getText());
+                if (w != null) {
+                    w.setFavorite(true);
+                    JOptionPane.showMessageDialog(SearchWord.this, "Add word to favorite successfully!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
+                } else {
+                    JOptionPane.showMessageDialog(SearchWord.this, "Word  Not Found. Please try again!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
+                }
+            } else
+                JOptionPane.showMessageDialog(SearchWord.this, "Please enter word from dictionary!", "Favorite Word", JOptionPane.ERROR_MESSAGE);
+
+        });
 
 
         Container c = getContentPane();
