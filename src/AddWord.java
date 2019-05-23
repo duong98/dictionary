@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 
 public class AddWord extends JFrame{
     private JTextField tfWord;
+    private JTextField tfCategory;
     private JTextArea  taMeaning;
     private JButton btnAdd;
 
@@ -28,24 +29,22 @@ public class AddWord extends JFrame{
 
         tfWord = new JTextField(30);
         taMeaning = new JTextArea();
+        tfCategory = new JTextField(30);
         btnAdd = new JButton("Add Word");
-        btnAdd.addActionListener( new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 if (  tfWord.getText().length() > 0 && taMeaning.getText().length() > 0  ) {
-                      Dictionary.addWord(tfWord.getText(), taMeaning.getText());
-                      tfWord.setText("");
-                      taMeaning.setText("");
-                      tfWord.requestFocus();
-                      JOptionPane.showMessageDialog( AddWord.this, "Added Word Successfully!","Add Word", JOptionPane.INFORMATION_MESSAGE);
-                 }
-                 else
-                     JOptionPane.showMessageDialog( AddWord.this, "Please enter word and meaning!","Add Word", JOptionPane.ERROR_MESSAGE);
+        btnAdd.addActionListener(e -> {
+             if (  tfWord.getText().length() > 0 && taMeaning.getText().length() > 0  ) {
+                  Dictionary.addWord(tfWord.getText(), taMeaning.getText(), tfCategory.getText());
+                  tfWord.setText("");
+                  taMeaning.setText("");
+                  tfCategory.setText("");
+                  tfWord.requestFocus();
+                  JOptionPane.showMessageDialog( AddWord.this, "Added Word Successfully!","Add Word", JOptionPane.INFORMATION_MESSAGE);
+             }
+             else
+                 JOptionPane.showMessageDialog( AddWord.this, "Please enter word and meaning!","Add Word", JOptionPane.ERROR_MESSAGE);
 
 
-            }
-         }
+        }
         );
 
         Container c = getContentPane();
@@ -57,6 +56,12 @@ public class AddWord extends JFrame{
         gbc.anchor = GridBagConstraints.WEST;
         c.add(tfWord);
 
+//        gbc.gridx = 0;
+        gbc.anchor = GridBagConstraints.EAST;
+        c.add( new JLabel("Enter Category:"),gbc);
+        gbc.anchor = GridBagConstraints.WEST;
+        c.add(tfCategory);
+
         // add taMeaning
         gbc.gridx = 0;
         gbc.anchor = GridBagConstraints.EAST;
@@ -65,7 +70,7 @@ public class AddWord extends JFrame{
         gbc.gridx = 1;
         gbc.gridwidth = 2;
         gbc.gridheight = 2;
-        taMeaning.setRows(3);
+        taMeaning.setRows(4);
         taMeaning.setColumns(30);
         JScrollPane sp = new JScrollPane(taMeaning, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         c.add(sp, gbc);
