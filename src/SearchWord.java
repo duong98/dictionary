@@ -13,66 +13,55 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class SearchWord extends JFrame{
+public class SearchWord extends JFrame {
     private JTextField tfWord;
-    private JTextArea  taMeaning;
+    private JTextArea taMeaning;
     private JButton btnSearch;
     private JButton addfavorite;
     private String meaning;
+
     public SearchWord() {
         super("Search Word");
-        GridBagLayout gbl  = new GridBagLayout();
+        GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
-        gbc.insets = new Insets(5,5,5,5);
+        gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.BOTH;
 
         tfWord = new JTextField(20);
         taMeaning = new JTextArea();
         btnSearch = new JButton("Search");
         addfavorite = new JButton("Add Favorite");
-        btnSearch.addActionListener( new ActionListener() {
+        btnSearch.addActionListener(e -> {
+                    if (tfWord.getText().length() > 0) {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 if (  tfWord.getText().length() > 0 ) {
-                 meaning = Dictionary.searchWord(tfWord.getText());
-                 if ( meaning != null)
-                       taMeaning.setText(meaning);
-                 else
-                       JOptionPane.showMessageDialog( SearchWord.this, "Word  Not Found. Please try again!","Search Word", JOptionPane.INFORMATION_MESSAGE);
-                 }
-                 else
-                     JOptionPane.showMessageDialog( SearchWord.this, "Please enter word from dictionary!","Search Word", JOptionPane.ERROR_MESSAGE);
-            }
-         }
-        );
-        addfavorite.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                if (  tfWord.getText().length() > 0 ){
-                    if ( meaning != null){
-                        Dictionary.savefToDisk(tfWord.getText(),meaning);
-                        JOptionPane.showMessageDialog(SearchWord.this, "Added favorite Word Successfully!","Search Word", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    else
-                        JOptionPane.showMessageDialog(SearchWord.this, "Word not found yet","Search Word", JOptionPane.ERROR_MESSAGE);
+                        Word w = Dictionary.searchWord(tfWord.getText());
+                        if (w != null) {
+                            meaning = w.getMeaning();
+                            taMeaning.setText(meaning);
+                            addfavorite.addActionListener(ae -> {
+                                w.setFavorite(true);
+                            });
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(SearchWord.this, "Word  Not Found. Please try again!", "Search Word", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                    } else
+                        JOptionPane.showMessageDialog(SearchWord.this, "Please enter word from dictionary!", "Search Word", JOptionPane.ERROR_MESSAGE);
                 }
-                else
-                    JOptionPane.showMessageDialog(SearchWord.this, "Please enter word from dictionary!","Search Word", JOptionPane.ERROR_MESSAGE);
-            }
-        }) ;
+        );
+
+
 
         Container c = getContentPane();
         c.setLayout(gbl);
 
         // add tfWord
         gbc.anchor = GridBagConstraints.EAST;
-        c.add( new JLabel("Search Word :"),gbc);
+        c.add(new JLabel("Search Word :"), gbc);
         gbc.anchor = GridBagConstraints.WEST;
         c.add(tfWord);
         gbc.anchor = GridBagConstraints.EAST;
-        c.add( btnSearch);
+        c.add(btnSearch);
         gbc.anchor = GridBagConstraints.EAST;
         c.add(addfavorite);
 
@@ -80,7 +69,7 @@ public class SearchWord extends JFrame{
         // add taMeaning
         gbc.gridx = 0;
         gbc.anchor = GridBagConstraints.EAST;
-        c.add( new JLabel("Meaning :"), gbc);
+        c.add(new JLabel("Meaning :"), gbc);
         gbc.anchor = GridBagConstraints.WEST;
         gbc.gridx = 1;
         gbc.gridwidth = 2;
