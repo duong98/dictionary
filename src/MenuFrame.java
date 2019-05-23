@@ -1,8 +1,6 @@
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -101,31 +99,31 @@ public class MenuFrame extends JFrame {
     }
 
     public void addWord() {
-        AddWord w = new AddWord();
+        AddWordFrame w = new AddWordFrame();
         centerToParent(MenuFrame.this, w);
         w.setVisible(true);
     }
 
     public void deleteWord() {
-        DeleteWord w = new DeleteWord();
+        DeleteWordFrame w = new DeleteWordFrame();
         centerToParent(MenuFrame.this, w);
         w.setVisible(true);
     }
 
     public void searchWord() {
-        SearchWord w = new SearchWord();
+        SearchWordFrame w = new SearchWordFrame();
         centerToParent(MenuFrame.this, w);
         w.setVisible(true);
     }
 
     public void listFavoriteWords() {
-        ListFavoriteWords w = new ListFavoriteWords();
+        ListFavoriteFrame w = new ListFavoriteFrame();
         w.setVisible(true);
         centerToParent(MenuFrame.this, w);
     }
 
     public void listWords() {
-        ListWords w = new ListWords();
+        ListWordsFrame w = new ListWordsFrame();
         w.setVisible(true);
         centerToParent(MenuFrame.this, w);
     }

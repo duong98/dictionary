@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class ListWords extends JFrame{
-     public ListWords() {
+public class ListWordsFrame extends JFrame{
+     public ListWordsFrame() {
         super("List of Words");
 
         Container c = getContentPane();

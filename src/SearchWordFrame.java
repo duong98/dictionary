@@ -3,8 +3,6 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,14 +11,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class SearchWord extends JFrame {
+public class SearchWordFrame extends JFrame {
     private JTextField tfWord;
     private JTextArea taMeaning;
     private JButton btnSearch;
     private JButton addfavorite;
     private String meaning;
 
-    public SearchWord() {
+    public SearchWordFrame() {
         super("Search Word");
         GridBagLayout gbl = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
@@ -40,10 +38,10 @@ public class SearchWord extends JFrame {
                             taMeaning.setText(meaning);
 
                         } else {
-                            JOptionPane.showMessageDialog(SearchWord.this, "Word  Not Found. Please try again!", "Search Word", JOptionPane.INFORMATION_MESSAGE);
+                            JOptionPane.showMessageDialog(SearchWordFrame.this, "Word  Not Found. Please try again!", "Search Word", JOptionPane.INFORMATION_MESSAGE);
                         }
                     } else
-                        JOptionPane.showMessageDialog(SearchWord.this, "Please enter word from dictionary!", "Search Word", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(SearchWordFrame.this, "Please enter word from dictionary!", "Search Word", JOptionPane.ERROR_MESSAGE);
                 }
         );
 
@@ -53,12 +51,12 @@ public class SearchWord extends JFrame {
                 Word w = Dictionary.searchWord(tfWord.getText());
                 if (w != null) {
                     w.setFavorite(true);
-                    JOptionPane.showMessageDialog(SearchWord.this, "Add word to favorite successfully!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(SearchWordFrame.this, "Add word to favorite successfully!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
                 } else {
-                    JOptionPane.showMessageDialog(SearchWord.this, "Word  Not Found. Please try again!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(SearchWordFrame.this, "Word  Not Found. Please try again!", "Favorite Word", JOptionPane.INFORMATION_MESSAGE);
                 }
             } else
-                JOptionPane.showMessageDialog(SearchWord.this, "Please enter word from dictionary!", "Favorite Word", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(SearchWordFrame.this, "Please enter word from dictionary!", "Favorite Word", JOptionPane.ERROR_MESSAGE);
 
         });
 

@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class ListFavoriteWords extends JFrame{
-     public ListFavoriteWords() {
+public class ListFavoriteFrame extends JFrame{
+     public ListFavoriteFrame() {
         super("List of Favorite Words");
 
         Container c = getContentPane();

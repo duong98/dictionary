@@ -3,8 +3,6 @@ import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -13,13 +11,13 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class AddWord extends JFrame{
+public class AddWordFrame extends JFrame{
     private JTextField tfWord;
     private JTextField tfCategory;
     private JTextArea  taMeaning;
     private JButton btnAdd;
 
-    public AddWord() {
+    public AddWordFrame() {
         super("Add Word");
 
         GridBagLayout gbl  = new GridBagLayout();
@@ -38,10 +36,10 @@ public class AddWord extends JFrame{
                   taMeaning.setText("");
                   tfCategory.setText("");
                   tfWord.requestFocus();
-                  JOptionPane.showMessageDialog( AddWord.this, "Added Word Successfully!","Add Word", JOptionPane.INFORMATION_MESSAGE);
+                  JOptionPane.showMessageDialog( AddWordFrame.this, "Added Word Successfully!","Add Word", JOptionPane.INFORMATION_MESSAGE);
              }
              else
-                 JOptionPane.showMessageDialog( AddWord.this, "Please enter word and meaning!","Add Word", JOptionPane.ERROR_MESSAGE);
+                 JOptionPane.showMessageDialog( AddWordFrame.this, "Please enter word and meaning!","Add Word", JOptionPane.ERROR_MESSAGE);
 
 
         }
@@ -86,7 +84,7 @@ public class AddWord extends JFrame{
     }
 
     public static void main(String args[]) {
-        AddWord w = new AddWord();
+        AddWordFrame w = new AddWordFrame();
         w.setVisible(true);
     }
 }
