@@ -18,22 +18,18 @@ public class DeleteWord extends JFrame{
 
         tfWord = new JTextField(20);
         btnDelete = new JButton("Delete");
-        btnDelete.addActionListener( new ActionListener() {
+        btnDelete.addActionListener(e -> {
+             if (  tfWord.getText().length() > 0 ) {
+                   boolean done = Dictionary.deleteWord(tfWord.getText());
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 if (  tfWord.getText().length() > 0 ) {
-                       boolean done = Dictionary.deleteWord(tfWord.getText());
-
-                 if (!done)
-                       JOptionPane.showMessageDialog( DeleteWord.this, "Word  Not Found. Please try again!","Delete Word", JOptionPane.INFORMATION_MESSAGE);
-                 else
-                       JOptionPane.showMessageDialog( DeleteWord.this, "Word  Deleted Successfully!","Delete Word", JOptionPane.INFORMATION_MESSAGE);
-                 }
-                 else
-                      JOptionPane.showMessageDialog( DeleteWord.this, "Please enter word from dictionary!","Add Word", JOptionPane.ERROR_MESSAGE);
-            }
-         }
+             if (!done)
+                   JOptionPane.showMessageDialog( DeleteWord.this, "Word  Not Found. Please try again!","Delete Word", JOptionPane.INFORMATION_MESSAGE);
+             else
+                   JOptionPane.showMessageDialog( DeleteWord.this, "Word  Deleted Successfully!","Delete Word", JOptionPane.INFORMATION_MESSAGE);
+             }
+             else
+                  JOptionPane.showMessageDialog( DeleteWord.this, "Please enter word from dictionary!","Add Word", JOptionPane.ERROR_MESSAGE);
+        }
         );
 
         Container c = getContentPane();
@@ -45,4 +41,8 @@ public class DeleteWord extends JFrame{
         pack(); // get requried size based on components
     }
 
+    public static void main(String args[]) {
+        DeleteWord w = new DeleteWord();
+        w.setVisible(true);
+    }
 }
