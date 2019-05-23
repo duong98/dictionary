@@ -29,26 +29,14 @@ public class MenuFrame extends JFrame {
         option.setIcon( getImage("add.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F5"));
         mnuDictionary.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                addWord();
-            }
-        });
+        option.addActionListener(e -> addWord());
 
         // options in Dictionary Menu
         option = new JMenuItem("Delete Word...");
         option.setIcon( getImage("delete.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F6"));
         mnuDictionary.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                deleteWord();
-            }
-        });
+        option.addActionListener(e -> deleteWord());
 
         mnuDictionary.addSeparator();
 
@@ -57,38 +45,20 @@ public class MenuFrame extends JFrame {
         option.setIcon( getImage("search.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F7"));
         mnuDictionary.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                searchWord();
-            }
-        });
+        option.addActionListener(e -> searchWord());
 
 
         option = new JMenuItem("List favorite Words");
         option.setIcon( getImage("list.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F8"));
         mnuDictionary.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                listfavoriteWords();
-            }
-        });
+        option.addActionListener(e -> listFavoriteWords());
 
         mnuDictionary.addSeparator();
 
         option = new JMenuItem("Exit");
         mnuDictionary.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                exit();
-            }
-        });
+        option.addActionListener(e -> exit());
 
         addStorageMenu(mb);
         addToolbar();
@@ -149,8 +119,14 @@ public class MenuFrame extends JFrame {
         w.setVisible(true);
     }
 
-    public void listfavoriteWords() {
-        ListfavoriteWords w = new ListfavoriteWords();
+    public void listFavoriteWords() {
+        ListFavoriteWords w = new ListFavoriteWords();
+        w.setVisible(true);
+        centerToParent(MenuFrame.this, w);
+    }
+
+    public void listWords() {
+        ListWords w = new ListWords();
         w.setVisible(true);
         centerToParent(MenuFrame.this, w);
     }
@@ -161,76 +137,41 @@ public class MenuFrame extends JFrame {
         b.setPreferredSize( new Dimension(32,32));
         tb.add(b);
         b.setToolTipText("Add Word");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 addWord();
-            }
-
-        });
+        b.addActionListener(e -> addWord());
 
         b = new JButton( getImage("delete.gif"));
         b.setPreferredSize( new Dimension(32,32));
         tb.add(b);
         b.setToolTipText("Delete Word");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 deleteWord();
-            }
-
-        });
+        b.addActionListener(e -> deleteWord());
 
         b = new JButton( getImage("search.gif"));
         b.setPreferredSize( new Dimension(32,32));
         tb.add(b);
         b.setToolTipText("Search Word");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 searchWord();
-            }
-
-        });
+        b.addActionListener(e -> searchWord());
 
 
         b = new JButton( getImage("list.gif"));
         tb.add(b);
         b.setToolTipText("List Words");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 listfavoriteWords();
-            }
-
-        });
+        b.addActionListener(e -> listWords());
 
         tb.addSeparator();
 
         b = new JButton( getImage("save.gif"));
         tb.add(b);
         b.setToolTipText("Save Dictionary To Disk");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 Dictionary.saveToDisk();
-            }
-
-        });
+        b.addActionListener(e -> Dictionary.saveToDisk());
 
         b = new JButton( getImage("load.gif"));
         tb.add(b);
         b.setToolTipText("Load Dictionary From Disk");
-        b.addActionListener( new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                 Dictionary.loadFromDisk();
-            }
-
-        });
+        b.addActionListener(e -> Dictionary.loadFromDisk());
 
         getContentPane().add(tb, BorderLayout.NORTH);
     }
+
     public void addStorageMenu(JMenuBar mb) {
 
         JMenu mnuStorage = new JMenu("Storage");
@@ -240,18 +181,14 @@ public class MenuFrame extends JFrame {
         option.setIcon( getImage("save.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F2"));
         mnuStorage.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                boolean result = Dictionary.saveToDisk();
-                if (result) {
-                    JOptionPane.showMessageDialog(MenuFrame.this, "Saved Dictionary Successfully!", "Feedback",
-                            JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(MenuFrame.this, "Could Not Save Dictionary Successfully! Error --> " + Dictionary.getMessage(), "Feedback",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
+        option.addActionListener(e -> {
+            boolean result = Dictionary.saveToDisk();
+            if (result) {
+                JOptionPane.showMessageDialog(MenuFrame.this, "Saved Dictionary Successfully!", "Feedback",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(MenuFrame.this, "Could Not Save Dictionary Successfully! Error --> " + Dictionary.getMessage(), "Feedback",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 
@@ -260,18 +197,14 @@ public class MenuFrame extends JFrame {
         option.setIcon( getImage("load.gif"));
         option.setAccelerator( KeyStroke.getKeyStroke("F3"));
         mnuStorage.add(option);
-        option.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                boolean result = Dictionary.loadFromDisk();
-                if (result) {
-                    JOptionPane.showMessageDialog(MenuFrame.this, "Loaded Dictionary Successfully!", "Feedback",
-                            JOptionPane.INFORMATION_MESSAGE);
-                } else {
-                    JOptionPane.showMessageDialog(MenuFrame.this, "Could Not Load Dictionary Successfully! Error --> " + Dictionary.getMessage(), "Feedback",
-                            JOptionPane.INFORMATION_MESSAGE);
-                }
+        option.addActionListener(e -> {
+            boolean result = Dictionary.loadFromDisk();
+            if (result) {
+                JOptionPane.showMessageDialog(MenuFrame.this, "Loaded Dictionary Successfully!", "Feedback",
+                        JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(MenuFrame.this, "Could Not Load Dictionary Successfully! Error --> " + Dictionary.getMessage(), "Feedback",
+                        JOptionPane.INFORMATION_MESSAGE);
             }
         });
 

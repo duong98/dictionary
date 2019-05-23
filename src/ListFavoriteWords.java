@@ -6,9 +6,9 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-public class ListfavoriteWords extends JFrame{
-     public ListfavoriteWords() {
-        super("List of Words");
+public class ListFavoriteWords extends JFrame{
+     public ListFavoriteWords() {
+        super("List of Favorite Words");
 
         Container c = getContentPane();
 
