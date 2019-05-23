@@ -56,7 +56,7 @@ public class Word {
                 + "---" + category + "\n";
     }
 
-    public Word fromString(String line) {
+    public static Word fromString(String line) {
         String[] tokens = line.split("---");
         boolean isFavorite = tokens[2].equals("1");
         return new Word(tokens[0].trim(), tokens[1].trim(),

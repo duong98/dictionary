@@ -1,5 +1,6 @@
 
 import java.awt.Container;
+import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
 import javax.swing.JFrame;
@@ -15,14 +16,17 @@ public class ListWords extends JFrame{
         Vector headings = new Vector();
         headings.add("Word");
         headings.add("Meaning");
+        headings.add("Category");
         
         Vector rows = new Vector();
 
-        TreeMap<String,String> words = Dictionary.getWords();
+        Map<String,Word> words = Dictionary.getWords();
         for(String word :  words.keySet()) {
              Vector row= new Vector();
-             row.add(word);
-             row.add( words.get(word));
+             Word w = words.get(word);
+             row.add(w.getWord());
+             row.add(w.getMeaning());
+             row.add(w.getCategory());
              rows.add(row);
         }
 
