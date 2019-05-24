@@ -30,9 +30,12 @@ public class ListWordsFrame extends JFrame{
              rows.add(row);
         }
 
-        JTable wordstable = new JTable(rows,headings);
+        JTable table = new JTable(rows,headings);
+        table.getColumnModel().getColumn(0).setPreferredWidth(50);
+        table.getColumnModel().getColumn(1).setPreferredWidth(200);
+        table.getColumnModel().getColumn(2).setPreferredWidth(80);
 
-        JScrollPane sp = new JScrollPane(wordstable, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 
         c.add(sp);
         pack(); // get requried size based on components

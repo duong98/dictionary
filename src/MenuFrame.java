@@ -18,52 +18,14 @@ public class MenuFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         JMenuBar mb = new JMenuBar();
-        // create menu
-        JMenu mnuDictionary = new JMenu("Dictionary");
-        mb.add(mnuDictionary);
-
-        // options in Dictionary Menu
-        JMenuItem option = new JMenuItem("Add Word...");
-        option.setIcon( getImage("add.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F5"));
-        mnuDictionary.add(option);
-        option.addActionListener(e -> addWord());
-
-        // options in Dictionary Menu
-        option = new JMenuItem("Delete Word...");
-        option.setIcon( getImage("delete.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F6"));
-        mnuDictionary.add(option);
-        option.addActionListener(e -> deleteWord());
-
-        mnuDictionary.addSeparator();
-
-        option = new JMenuItem("Search Word...");
-        option.setIcon( getImage("search.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F7"));
-        mnuDictionary.add(option);
-        option.addActionListener(e -> searchWord());
-
-
-        option = new JMenuItem("List favorite Words");
-        option.setIcon( getImage("list.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F8"));
-        mnuDictionary.add(option);
-        option.addActionListener(e -> listFavoriteWords());
-
-        mnuDictionary.addSeparator();
-
-        option = new JMenuItem("Exit");
-        mnuDictionary.add(option);
-        option.addActionListener(e -> exit());
 
         addStorageMenu(mb);
+        addDictionaryMenu(mb);
         addToolbar();
         setJMenuBar(mb);
+//        searchWord();
 
-        // load dictionary from disk
         Dictionary.loadFromDisk();
-
     }
 
     public void exit() {
@@ -113,22 +75,30 @@ public class MenuFrame extends JFrame {
     public void searchWord() {
         SearchWordFrame w = new SearchWordFrame();
         centerToParent(MenuFrame.this, w);
+//        JFrame parent = this;
+//        Dimension pd = parent.getSize();
+//        Dimension cd = w.getSize();
+//        int x = (int) (pd.getWidth() - cd.getWidth()) / 3;
+//        int y = (int) (pd.getHeight() - cd.getHeight()) / 3;
+//        w.setLocation(x, y);
+
         w.setVisible(true);
     }
 
-    public void listFavoriteWords() {
+    private void listFavoriteWords() {
         ListFavoriteFrame w = new ListFavoriteFrame();
         w.setVisible(true);
         centerToParent(MenuFrame.this, w);
+
     }
 
-    public void listWords() {
+    private void listWords() {
         ListWordsFrame w = new ListWordsFrame();
         w.setVisible(true);
         centerToParent(MenuFrame.this, w);
     }
 
-    public void addToolbar() {
+    private void addToolbar() {
         JToolBar tb = new JToolBar();
         JButton b = new JButton( getImage("add.gif"));
         b.setPreferredSize( new Dimension(32,32));
@@ -169,7 +139,7 @@ public class MenuFrame extends JFrame {
         getContentPane().add(tb, BorderLayout.NORTH);
     }
 
-    public void addStorageMenu(JMenuBar mb) {
+    private void addStorageMenu(JMenuBar mb) {
 
         JMenu mnuStorage = new JMenu("Storage");
 
@@ -207,6 +177,47 @@ public class MenuFrame extends JFrame {
 
         mb.add(mnuStorage);
 
+    }
+
+    private void addDictionaryMenu(JMenuBar mb) {
+        // create menu
+        JMenu mnuDictionary = new JMenu("Dictionary");
+        mb.add(mnuDictionary);
+
+        // options in Dictionary Menu
+        JMenuItem option = new JMenuItem("Add Word...");
+        option.setIcon( getImage("add.gif"));
+        option.setAccelerator( KeyStroke.getKeyStroke("F5"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> addWord());
+
+        // options in Dictionary Menu
+        option = new JMenuItem("Delete Word...");
+        option.setIcon( getImage("delete.gif"));
+        option.setAccelerator( KeyStroke.getKeyStroke("F6"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> deleteWord());
+
+        mnuDictionary.addSeparator();
+
+        option = new JMenuItem("Search Word...");
+        option.setIcon( getImage("search.gif"));
+        option.setAccelerator( KeyStroke.getKeyStroke("F7"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> searchWord());
+
+
+        option = new JMenuItem("List favorite Words");
+        option.setIcon( getImage("list.gif"));
+        option.setAccelerator( KeyStroke.getKeyStroke("F8"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> listFavoriteWords());
+
+        mnuDictionary.addSeparator();
+
+        option = new JMenuItem("Exit");
+        mnuDictionary.add(option);
+        option.addActionListener(e -> exit());
     }
 
     public static void main(String[] args) throws Exception {

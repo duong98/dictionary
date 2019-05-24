@@ -20,7 +20,7 @@ public class SearchWordFrame extends JFrame {
 
     public SearchWordFrame() {
         super("Search Word");
-        GridBagLayout gbl = new GridBagLayout();
+        GridBagLayout layout = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
         gbc.fill = GridBagConstraints.BOTH;
@@ -62,7 +62,7 @@ public class SearchWordFrame extends JFrame {
 
 
         Container c = getContentPane();
-        c.setLayout(gbl);
+        c.setLayout(layout);
 
         // add tfWord
         gbc.anchor = GridBagConstraints.EAST;
@@ -71,7 +71,7 @@ public class SearchWordFrame extends JFrame {
         c.add(tfWord);
         gbc.anchor = GridBagConstraints.EAST;
         c.add(btnSearch);
-        gbc.anchor = GridBagConstraints.EAST;
+        gbc.anchor = GridBagConstraints.WEST;
         c.add(addfavorite);
 
 
