@@ -1,5 +1,5 @@
 
-import java.awt.Container;
+import java.awt.*;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.Vector;
@@ -10,6 +10,7 @@ import javax.swing.JTable;
 public class ListWordsFrame extends JFrame{
      public ListWordsFrame() {
         super("List of Words");
+        setPreferredSize(new Dimension(800, 500));
 
         Container c = getContentPane();
 
@@ -31,9 +32,9 @@ public class ListWordsFrame extends JFrame{
         }
 
         JTable table = new JTable(rows,headings);
-        table.getColumnModel().getColumn(0).setPreferredWidth(50);
-        table.getColumnModel().getColumn(1).setPreferredWidth(200);
-        table.getColumnModel().getColumn(2).setPreferredWidth(80);
+        table.getColumnModel().getColumn(0).setPreferredWidth(20);
+        table.getColumnModel().getColumn(1).setPreferredWidth(350);
+        table.getColumnModel().getColumn(2).setPreferredWidth(20);
 
         JScrollPane sp = new JScrollPane(table, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 

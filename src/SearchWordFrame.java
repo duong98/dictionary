@@ -1,8 +1,5 @@
 
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -15,11 +12,12 @@ public class SearchWordFrame extends JFrame {
     private JTextField tfWord;
     private JTextArea taMeaning;
     private JButton btnSearch;
-    private JButton addfavorite;
+    private JButton btnFavorite;
     private String meaning;
 
     public SearchWordFrame() {
         super("Search Word");
+
         GridBagLayout layout = new GridBagLayout();
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(5, 5, 5, 5);
@@ -28,7 +26,7 @@ public class SearchWordFrame extends JFrame {
         tfWord = new JTextField(20);
         taMeaning = new JTextArea();
         btnSearch = new JButton("Search");
-        addfavorite = new JButton("Add Favorite");
+        btnFavorite = new JButton("Add Favorite");
         btnSearch.addActionListener(e -> {
                     if (tfWord.getText().length() > 0) {
 
@@ -45,7 +43,7 @@ public class SearchWordFrame extends JFrame {
                 }
         );
 
-        addfavorite.addActionListener(ae -> {
+        btnFavorite.addActionListener(ae -> {
             if (tfWord.getText().length() > 0) {
 
                 Word w = Dictionary.searchWord(tfWord.getText());
@@ -72,7 +70,7 @@ public class SearchWordFrame extends JFrame {
         gbc.anchor = GridBagConstraints.EAST;
         c.add(btnSearch);
         gbc.anchor = GridBagConstraints.WEST;
-        c.add(addfavorite);
+        c.add(btnFavorite);
 
 
         // add taMeaning
@@ -83,9 +81,10 @@ public class SearchWordFrame extends JFrame {
         gbc.gridx = 1;
         gbc.gridwidth = 2;
         gbc.gridheight = 2;
-        taMeaning.setRows(3);
+        taMeaning.setRows(6);
         taMeaning.setColumns(30);
-        JScrollPane sp = new JScrollPane(taMeaning, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        taMeaning.setLineWrap(true);
+        JScrollPane sp = new JScrollPane(taMeaning, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         c.add(sp, gbc);
 
         pack(); // get requried size based on components

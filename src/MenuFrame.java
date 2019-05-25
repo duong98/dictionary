@@ -1,34 +1,26 @@
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JToolBar;
-import javax.swing.KeyStroke;
+import java.awt.*;
+import javax.swing.*;
 
 public class MenuFrame extends JFrame {
+    private JMenuBar mb = new JMenuBar();
 
-    public MenuFrame() throws Exception {
+    public MenuFrame() {
         super("Dictionary");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        JMenuBar mb = new JMenuBar();
 
-        addStorageMenu(mb);
-        addDictionaryMenu(mb);
+
+        addDictionaryMenu();
+        addStorageMenu();
+        addAboutMenu();
         addToolbar();
         setJMenuBar(mb);
-//        searchWord();
 
         Dictionary.loadFromDisk();
     }
 
-    public void exit() {
+    private void exit() {
         if (Dictionary.isModified()) {
             int option = JOptionPane.showConfirmDialog(MenuFrame.this, "You have some pending changes. Do you want to write them to disk and then exit?",
                     "Save", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
@@ -36,22 +28,21 @@ public class MenuFrame extends JFrame {
             if (option == JOptionPane.YES_OPTION) {  // exit after save
                 Dictionary.saveToDisk();
                 System.exit(0);
-            }
-            else if (option == JOptionPane.NO_OPTION) // exit without saving
+            } else if (option == JOptionPane.NO_OPTION) // exit without saving
             {
-               System.exit(0);
+                System.exit(0);
             }
-        // if cancel then do not exit
+            // if cancel then do not exit
         } else {
             System.exit(0);
         }
     }
 
-    public ImageIcon getImage(String filename){
-        return new ImageIcon(  this.getClass().getResource("/images/" + filename));
+    private ImageIcon getImage(String filename) {
+        return new ImageIcon(this.getClass().getResource("/images/" + filename));
     }
 
-    public void centerToParent(JFrame parent, JFrame child) {
+    private void centerToParent(JFrame parent, JFrame child) {
         Dimension pd = parent.getSize();
         Dimension cd = child.getSize();
         int x = (int) (pd.getWidth() - cd.getWidth()) / 2;
@@ -60,28 +51,21 @@ public class MenuFrame extends JFrame {
 
     }
 
-    public void addWord() {
+    private void addWord() {
         AddWordFrame w = new AddWordFrame();
         centerToParent(MenuFrame.this, w);
         w.setVisible(true);
     }
 
-    public void deleteWord() {
+    private void deleteWord() {
         DeleteWordFrame w = new DeleteWordFrame();
         centerToParent(MenuFrame.this, w);
         w.setVisible(true);
     }
 
-    public void searchWord() {
+    private void searchWord() {
         SearchWordFrame w = new SearchWordFrame();
-        centerToParent(MenuFrame.this, w);
-//        JFrame parent = this;
-//        Dimension pd = parent.getSize();
-//        Dimension cd = w.getSize();
-//        int x = (int) (pd.getWidth() - cd.getWidth()) / 3;
-//        int y = (int) (pd.getHeight() - cd.getHeight()) / 3;
-//        w.setLocation(x, y);
-
+        centerToParent(this, w);
         w.setVisible(true);
     }
 
@@ -100,38 +84,38 @@ public class MenuFrame extends JFrame {
 
     private void addToolbar() {
         JToolBar tb = new JToolBar();
-        JButton b = new JButton( getImage("add.gif"));
-        b.setPreferredSize( new Dimension(32,32));
+        JButton b = new JButton(getImage("add.gif"));
+        b.setPreferredSize(new Dimension(32, 32));
         tb.add(b);
         b.setToolTipText("Add Word");
         b.addActionListener(e -> addWord());
 
-        b = new JButton( getImage("delete.gif"));
-        b.setPreferredSize( new Dimension(32,32));
+        b = new JButton(getImage("delete.gif"));
+        b.setPreferredSize(new Dimension(32, 32));
         tb.add(b);
         b.setToolTipText("Delete Word");
         b.addActionListener(e -> deleteWord());
 
-        b = new JButton( getImage("search.gif"));
-        b.setPreferredSize( new Dimension(32,32));
+        b = new JButton(getImage("search.gif"));
+        b.setPreferredSize(new Dimension(32, 32));
         tb.add(b);
         b.setToolTipText("Search Word");
         b.addActionListener(e -> searchWord());
 
 
-        b = new JButton( getImage("list.gif"));
+        b = new JButton(getImage("list.gif"));
         tb.add(b);
         b.setToolTipText("List Words");
         b.addActionListener(e -> listWords());
 
         tb.addSeparator();
 
-        b = new JButton( getImage("save.gif"));
+        b = new JButton(getImage("save.gif"));
         tb.add(b);
         b.setToolTipText("Save Dictionary To Disk");
         b.addActionListener(e -> Dictionary.saveToDisk());
 
-        b = new JButton( getImage("load.gif"));
+        b = new JButton(getImage("load.gif"));
         tb.add(b);
         b.setToolTipText("Load Dictionary From Disk");
         b.addActionListener(e -> Dictionary.loadFromDisk());
@@ -139,14 +123,14 @@ public class MenuFrame extends JFrame {
         getContentPane().add(tb, BorderLayout.NORTH);
     }
 
-    private void addStorageMenu(JMenuBar mb) {
+    private void addStorageMenu() {
 
         JMenu mnuStorage = new JMenu("Storage");
 
         // options in Storage Menu
         JMenuItem option = new JMenuItem("Save Dictionary");
-        option.setIcon( getImage("save.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F2"));
+        option.setIcon(getImage("save.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F2"));
         mnuStorage.add(option);
         option.addActionListener(e -> {
             boolean result = Dictionary.saveToDisk();
@@ -161,8 +145,8 @@ public class MenuFrame extends JFrame {
 
 
         option = new JMenuItem("Load Dictionary");
-        option.setIcon( getImage("load.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F3"));
+        option.setIcon(getImage("load.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F3"));
         mnuStorage.add(option);
         option.addActionListener(e -> {
             boolean result = Dictionary.loadFromDisk();
@@ -179,37 +163,37 @@ public class MenuFrame extends JFrame {
 
     }
 
-    private void addDictionaryMenu(JMenuBar mb) {
+    private void addDictionaryMenu() {
         // create menu
         JMenu mnuDictionary = new JMenu("Dictionary");
         mb.add(mnuDictionary);
 
         // options in Dictionary Menu
         JMenuItem option = new JMenuItem("Add Word...");
-        option.setIcon( getImage("add.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F5"));
+        option.setIcon(getImage("add.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F5"));
         mnuDictionary.add(option);
         option.addActionListener(e -> addWord());
 
         // options in Dictionary Menu
         option = new JMenuItem("Delete Word...");
-        option.setIcon( getImage("delete.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F6"));
+        option.setIcon(getImage("delete.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F6"));
         mnuDictionary.add(option);
         option.addActionListener(e -> deleteWord());
 
         mnuDictionary.addSeparator();
 
         option = new JMenuItem("Search Word...");
-        option.setIcon( getImage("search.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F7"));
+        option.setIcon(getImage("search.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F7"));
         mnuDictionary.add(option);
         option.addActionListener(e -> searchWord());
 
 
         option = new JMenuItem("List favorite Words");
-        option.setIcon( getImage("list.gif"));
-        option.setAccelerator( KeyStroke.getKeyStroke("F8"));
+        option.setIcon(getImage("list.gif"));
+        option.setAccelerator(KeyStroke.getKeyStroke("F8"));
         mnuDictionary.add(option);
         option.addActionListener(e -> listFavoriteWords());
 
@@ -218,6 +202,21 @@ public class MenuFrame extends JFrame {
         option = new JMenuItem("Exit");
         mnuDictionary.add(option);
         option.addActionListener(e -> exit());
+    }
+
+    private void addAboutMenu() {
+        JMenu mnuDictionary = new JMenu("About");
+        mb.add(mnuDictionary);
+
+        // options in Dictionary Menu
+        JMenuItem option = new JMenuItem("Members");
+//        option.setIcon(getImage("add.gif"));
+//        option.setAccelerator(KeyStroke.getKeyStroke("F5"));
+        mnuDictionary.add(option);
+        option.addActionListener(e -> {
+            JOptionPane.showMessageDialog(MenuFrame.this, "This project is written by the following students:\n1. Nguyen The Anh\n2. Tran Tung Duong\n3. Nguyen Duc Nhat", "Project members", JOptionPane.INFORMATION_MESSAGE);
+        });
+
     }
 
     public static void main(String[] args) throws Exception {

@@ -1,1 +1,89 @@
-a---c---1---b
+Bluetooth---a way of communicating wirelessly over short distances between electronic devices (for example computer and mobile telephone)---0---Computer
+CD-ROM---a disk for storing computer information. It looks like an audio CD.---0---Computer
+CPU---Central Processing Unit. This is a PC's heart or "brains".---0---Computer
+DOS---Disk Operating System. The original system used for PCs, where you typed in commands instead of pointing and clicking.---0---Computer
+Internet---International network of computers that you connect to by telephone line. Two popular services of the Internet are the World Wide Web and electronic mail.---0---Computer
+OCR---Optical Character Recognition. OCR lets a PC read a fax or scanned image and convert it to actual lettering.---0---Computer
+PC card---a device that is the same size as a thick credit card, for plugging into a slot on notebook computers. You can buy memory, modems and hard disks as PC cards.---0---Computer
+PDA---abbreviation of "personal digital assistant"---0---Computer
+QWERTY---The first 6 letters on English-language keyboards are Q-W-E-R-T-Y. The first 6 letters on French-language keyboards are A-Z-E-R-T-Y.---0---Computer
+RAM---AM (Random Access Memory) is the main memory used while the PC is working. RAM is temporary.---0---Computer
+ROM---ROM (Read Only Memory) is for information needed by the PC and cannot be changed.---0---Computer
+TFT---Thin Film Transistor, a type of high quality screen for notebook computers---0---Computer
+USB---abbreviation of "universal serial bus"; a standardized connection for attaching devices to computers etc---0---Computer
+WYSIWIG---"What You See Is What You Get." With a WYSIWIG program, if you print a document it looks the same on paper as it looks on the screen.---0---Computer
+Wi-Fi---a system for communicating without wires over a computer network---0---Computer
+Windows---an operating system used by the majority of PCs---0---Computer
+World Wide Web---WWW are initials that stand for World Wide Web. The Web is one of the services available on the Internet. It lets you access millions of pages through a system of links. Because it is "world-wide", it was originally called the World Wide Web or WWW.---0---Computer
+app---a self-contained program or piece of software; an application, especially when downloadable to a mobile device---0---Computer
+appetizer---food served before the main course---0---Food
+application---a self-contained program or piece of software---0---Computer
+aroma---a nice smell, especially from food, wine, coffee, etc.---0---Food
+backup---a copy of files from a computer's hard disk, usually made on some external medium such as CD-ROM or flash drive. A backup is made in case the hard disk file(s) are erased or damaged.---0---Computer
+bake---to cook in an oven---0---Food
+bit---a bit is the smallest piece of information that computers use. For simplicity, a PC uses bits in groups of 8 called bytes (8 bits = 1 byte).---0---Computer
+bland---having little taste; tasteless---0---Food
+bonus---additional pay given to employee as incentive or reward---0---Employment
+boot---You boot (or boot up) your computer when you switch it on and wait while it prepares itself. Instructions for startup are given to the computer from the boot disk, which is usually the hard disk.---0---Computer
+browser---A browser is a program like Firefox or Internet Explorer. You use it to view or browse the Internet.---0---Computer
+bug---a (small) defect or fault in a program---0---Computer
+cache---a kind of memory used to make a computer work faster---0---Computer
+course---one part of a meal---0---Food
+cuisine---a country or region's style of cooking---0---Food
+curriculum vitae---short account of one's education, career etc;---0---Employment
+cutlery---knives, forks, and spoons used for eating---0---Food
+dairy product---a food made from milk, like butter, cheese, yoghurt, etc.---0---Food
+data---Usually means the information (text, pictures, audio etc) that you create or share on a computer, as opposed to the programs that manipulate the data.---0---Computer
+delicious---tasting very good---0---Food
+dessert---sweet food eaten at the end of a meal---0---Food
+dismiss---to remove or discharge from employment---0---Employment
+driver---a small program that tells a PC how a peripheral works---0---Computer
+ebook---an electronic book that can be downloaded and read on a computer or other device---0---Computer
+employer---person or firm who employs people---0---Employment
+file---a specific computer record. It could contain data such as text (eg essay.doc), or a program such as paint.exe.---0---Computer
+flavour---the taste of food or drink---0---Food
+floppy disk---a cheap, removable disk used for storing or transferring information. It is floppy (soft) because it is plastic. (Now virtually obsolete.)---0---Computer
+floppy drive---The device used to run a floppy disk (usually drive "A".) (Now virtually obsolete.)---0---Computer
+folder---a sub-division of a computer's hard disk into which you put files---0---Computer
+font---a particular sort of lettering (on the screen or on paper). Arial is a font. Times New Roman is another.---0---Computer
+format---All hard disks and floppy disks have to be electronically prepared for use by a process called formatting. Hard disks are pre-formatted by the computer manufacturer. If you buy a floppy disk that is not pre-formatted, you format it yourself, using a program that comes with your PC.---0---Computer
+fry---to cook something in hot oil or fat---0---Food
+grain---seeds used as food like wheat, rice, lentils, etc.---0---Food
+graphics card---the equipment inside a computer that creates the image on the screen---0---Computer
+grill---to cook something just above or below a heat source---0---Food
+hard disk---the main disk inside a computer used for storing programs and information. It is hard because it is metal.---0---Computer
+hotspot---an area that has an available wireless signal for Internet access (usually public)---0---Computer
+icon---a small image or picture on a computer screen that is a symbol for folders, disks, peripherals, programs etc---0---Computer
+ingredients---all the foods used to make a dish or meal---0---Food
+interview---an oral examination of an applicant for a job---0---Employment
+kitchenware---things used for preparing food like knives, spoons, pots, dishes, etc.---0---Food
+make redundant---to dismiss because of not being needed---0---Employemnt
+maternity leave---period of absence from work (for a woman) when having a baby---0---Employment
+memory---Memory is for the temporary storing of information while a computer is being used. See RAM, ROM and cache.---0---Computer
+modem---equipment connected to a computer for sending/receiving digital information by telephone line. You may need a modem to connect to the Internet, to send electronic mail and to fax.---0---Computer
+notebook---a notebook computer; a laptop computer; a folding, portable computer.---0---Computer
+notice---advance warning of intention to resign---0---Employment
+operating system---the basic software that manages a computer (for example, Windows 10, OS X, Unix, iOS).---0---computer
+palmtop---a computer that is small enough to sit on the palm of the hand---0---Computer
+parallel port---a socket at the back of a computer for connecting external equipment or peripherals, especially printers---0---Computer
+peripheral---any equipment that is connected externally to a computer. For example, printers, scanners and modems are peripherals.---0---Computer
+perk---perquisite; something additional to regular salary---0---Employment
+personnel---the people who work for a firm---0---Employment
+personnel officer---manager responsible for recruitment, training and welfare of personnel---0---Employment
+pixel---the image that you see on the screen is made of thousands of tiny dots, points or pixels---0---Computer
+poultry---Birds that people eat, like chickens, ducks, geese, etc---0---Food
+program---software that operates a PC and does various things, such as writing text (word-processing program), keeping accounts (accounts program) and drawing pictures (graphics program)---0---Computer
+promotion---advancement in rank or position---0---Employment
+prospects---opportunity for success, promotion etc---0---Employment
+recruit---to look for and employ personnel---0---Employment
+resign---to give up a job---0---Employment
+resolution---the number of dots or pixels per inch (sometimes per centimetre) used to create the screen image---0---Computer
+retire---to leave employment, esp. because of age---0---Employment
+salary---a fixed, regular payment, usually monthly, made by employer to employee---0---Employment
+scanner---equipment for converting paper documents to electronic documents that can be used by a computer---0---Computer
+serial port---socket at the back of a PC for connecting peripherals (obsolescent)---0---Computer
+staff---the people who work for a firm or a particular department; employees---0---Employment
+tableware---things used for serving or eating a meal such as knives, forks, plates, glasses, etc.---0---Food
+take on---to employ; to hire---0---Employment
+tasteless---having very little flavour---0---Food
+virus---a small, unauthorized program that can damage a computer---1---Computer
