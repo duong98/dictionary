@@ -12,17 +12,11 @@ import java.util.logging.Logger;
 public class Dictionary {
     private static boolean modified = false;
     private static String dictionaryfile;
-    private static String fdictionaryfile;
     private static String line;
 
     static {
         dictionaryfile = System.getProperty("user.dir") + "/Dictionary.txt";
     }
-
-    static {
-        fdictionaryfile = System.getProperty("user.dir") + "/favorite.txt";
-    }
-
     public static boolean isModified() {
         return modified;
     }
@@ -136,7 +130,7 @@ public class Dictionary {
             Scanner sc = new Scanner(inputStream, "UTF-8");
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
-                if (line.isEmpty() || line.trim().equals("")) continue;
+                if (line.isBlank() || line.isEmpty() || line.trim().equals("")) continue;
                 Word w = Word.fromString(line.trim());
                 words.put(w.getWord(), w);
             }

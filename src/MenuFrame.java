@@ -1,25 +1,40 @@
 
 import java.awt.*;
+import java.beans.PropertyVetoException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 public class MenuFrame extends JFrame {
     private JMenuBar mb = new JMenuBar();
+    private JDesktopPane desktop;
+    
 
     public MenuFrame() {
         super("Dictionary");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-
-
         addDictionaryMenu();
         addStorageMenu();
         addAboutMenu();
         addToolbar();
         setJMenuBar(mb);
-
+        desktop = new JDesktopPane();
+        createframe();
+        getContentPane().add(desktop);
         Dictionary.loadFromDisk();
     }
-
+    
+    private void createframe() {
+        SearchWordInternalFrame frame = new SearchWordInternalFrame();
+        frame.setVisible(true);
+        try {
+            frame.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        desktop.add(frame);
+    }
+    
     private void exit() {
         if (Dictionary.isModified()) {
             int option = JOptionPane.showConfirmDialog(MenuFrame.this, "You have some pending changes. Do you want to write them to disk and then exit?",
@@ -223,6 +238,5 @@ public class MenuFrame extends JFrame {
         MenuFrame f = new MenuFrame();
         f.setVisible(true);
         f.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
     }
 }
