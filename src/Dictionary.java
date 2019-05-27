@@ -41,6 +41,18 @@ public class Dictionary {
     public static Map<String, Word> getWords() {
         return words;
     }
+    
+    public static String getRelatedWord(Word w1) {
+        String st="";
+        for(String word :  words.keySet()) {
+             Word w = words.get(word);
+             if (w.getCategory().toString().trim().equals(w1.getCategory().toString().trim())){
+                st=st+w.getWord()+"; ";
+             }
+        }
+        return st;
+    }
+        
 
     public static Word searchWord(String word) {
         return words.get(word);

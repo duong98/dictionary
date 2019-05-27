@@ -5,12 +5,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/home/duong/NetBeansProjects/Dictionary/src/MenuFrame.java</file>
-            <file>file:/home/duong/NetBeansProjects/Dictionary/src/AddWordFrame.java</file>
-            <file>file:/home/duong/NetBeansProjects/Dictionary/src/DeleteWordFrame.java</file>
-            <file>file:/home/duong/NetBeansProjects/Dictionary/src/ListWordsFrame.java</file>
-            <file>file:/home/duong/NetBeansProjects/Dictionary/src/Word.java</file>
-            <file>file:/home/duong/NetBeansProjects/Dictionary/src/SearchWordFrame.java</file>
             <file>file:/home/duong/NetBeansProjects/Dictionary/src/SearchWordInternalFrame.java</file>
+            <file>file:/home/duong/NetBeansProjects/Dictionary/src/SearchWordFrame.java</file>
             <file>file:/home/duong/NetBeansProjects/Dictionary/src/ListFavoriteFrame.java</file>
             <file>file:/home/duong/NetBeansProjects/Dictionary/src/Dictionary.java</file>
         </group>

@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 public class SearchWordInternalFrame extends JInternalFrame {
     private JTextField tfWord;
     private JTextArea taMeaning;
+    private JTextArea taRelated;
     private JButton btnSearch;
     private JButton btnFavorite;
     private String meaning;
@@ -25,6 +26,7 @@ public class SearchWordInternalFrame extends JInternalFrame {
 
         tfWord = new JTextField(20);
         taMeaning = new JTextArea();
+        taRelated = new JTextArea();
         btnSearch = new JButton("Search");
         btnFavorite = new JButton("Add Favorite");
         btnSearch.addActionListener(e -> {
@@ -34,6 +36,7 @@ public class SearchWordInternalFrame extends JInternalFrame {
                         if (w != null) {
                             meaning = w.getMeaning();
                             taMeaning.setText(meaning);
+                            taRelated.setText(Dictionary.getRelatedWord(w));
 
                         } else {
                             JOptionPane.showMessageDialog(SearchWordInternalFrame.this, "Word  Not Found. Please try again!", "Search Word", JOptionPane.INFORMATION_MESSAGE);
@@ -86,6 +89,19 @@ public class SearchWordInternalFrame extends JInternalFrame {
         taMeaning.setLineWrap(true);
         JScrollPane sp = new JScrollPane(taMeaning, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         c.add(sp, gbc);
+        //add related
+        gbc.gridx = 0;
+        gbc.anchor = GridBagConstraints.EAST;
+        c.add(new JLabel("Related Words :"), gbc);
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.gridx = 1;
+        gbc.gridwidth = 2;
+        gbc.gridheight = 2;
+        taMeaning.setRows(6);
+        taMeaning.setColumns(30);
+        taMeaning.setLineWrap(true);
+        JScrollPane sp1 = new JScrollPane(taRelated, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        c.add(sp1, gbc);
 
         pack(); // get requried size based on components
     }

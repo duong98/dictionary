@@ -30,6 +30,9 @@ public class Word {
     public String getMeaning() {
         return meaning;
     }
+    public String getCategory() {
+        return category;
+    }
 
     public void setMeaning(String meaning) {
         this.meaning = meaning;
@@ -41,10 +44,6 @@ public class Word {
 
     public void setFavorite(boolean favorite) {
         isFavorite = favorite;
-    }
-
-    public String getCategory() {
-        return category;
     }
 
     public void setCategory(String category) {

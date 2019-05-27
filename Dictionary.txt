@@ -57,6 +57,7 @@ icon---a small image or picture on a computer screen that is a symbol for folder
 ingredients---all the foods used to make a dish or meal---0---Food
 interview---an oral examination of an applicant for a job---0---Employment
 kitchenware---things used for preparing food like knives, spoons, pots, dishes, etc.---0---Food
+m1---qa---1---Otaku
 make redundant---to dismiss because of not being needed---0---Employemnt
 maternity leave---period of absence from work (for a woman) when having a baby---0---Employment
 memory---Memory is for the temporary storing of information while a computer is being used. See RAM, ROM and cache.---0---Computer
