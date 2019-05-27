@@ -130,7 +130,7 @@ public class Dictionary {
             Scanner sc = new Scanner(inputStream, "UTF-8");
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
-                if (line.isBlank() || line.isEmpty() || line.trim().equals("")) continue;
+                if (line.isEmpty() || line.trim().equals("")) continue;
                 Word w = Word.fromString(line.trim());
                 words.put(w.getWord(), w);
             }
