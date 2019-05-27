@@ -51,37 +51,6 @@ public class Dictionary {
         modified = true;
     }
 
-//    public static boolean savefToDisk(String word, String meaning) {
-//        // create file and save to disk
-//        fwords.put(word, meaning);
-//        modified = true;
-//        try {
-//            // Assume default encoding.
-//            FileWriter fileWriter =
-//                    new FileWriter(fdictionaryfile);
-//
-//            // Always wrap FileWriter in BufferedWriter.
-//            BufferedWriter bufferedWriter =
-//                    new BufferedWriter(fileWriter);
-//
-//            for (Map.Entry<String, String> w : fwords.entrySet()) {
-//                String key = w.getKey();
-//                String value = w.getValue();
-//                bufferedWriter.write(key + "  " + value + "\n");
-//            }
-//            // Always close files.
-//            bufferedWriter.close();
-//            return true;
-//        } catch (IOException ex) {
-//            System.out.println(
-//                    "Error writing to file '"
-//                            + fdictionaryfile + "'");
-//            return false;
-//            // Or we could just do this:
-//            // ex.printStackTrace();
-//        }
-//
-//    }
 
     public static boolean deleteWord(String word) {
         Object done = words.remove(word);
@@ -130,7 +99,7 @@ public class Dictionary {
             Scanner sc = new Scanner(inputStream, "UTF-8");
             while (sc.hasNextLine()) {
                 line = sc.nextLine();
-                if (line.isBlank() || line.isEmpty() || line.trim().equals("")) continue;
+                if (line.isEmpty() || line.trim().equals("")) continue;
                 Word w = Word.fromString(line.trim());
                 words.put(w.getWord(), w);
             }
