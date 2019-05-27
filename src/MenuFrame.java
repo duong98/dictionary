@@ -26,12 +26,8 @@ public class MenuFrame extends JFrame {
     
     private void createframe() {
         SearchWordInternalFrame frame = new SearchWordInternalFrame();
+        frame.setSize(700, 500);
         frame.setVisible(true);
-        try {
-            frame.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MenuFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
         desktop.add(frame);
     }
     
