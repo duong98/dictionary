@@ -4,6 +4,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -14,9 +15,10 @@ import javax.swing.JTextField;
 
 public class AddWordFrame extends JFrame{
     private JTextField tfWord;
-    private JTextField tfCategory;
+    private JComboBox tfCategory;
     private JTextArea  taMeaning;
     private JButton btnAdd;
+    private String[] categories = {"Computer","Book","Movies","Games","Music","Otaku"};
 
     public AddWordFrame() {
         super("Add Word");
@@ -28,14 +30,13 @@ public class AddWordFrame extends JFrame{
 
         tfWord = new JTextField(30);
         taMeaning = new JTextArea();
-        tfCategory = new JTextField(30);
+        tfCategory = new JComboBox(categories);
         btnAdd = new JButton("Add Word");
         btnAdd.addActionListener(e -> {
              if (  tfWord.getText().length() > 0 && taMeaning.getText().length() > 0  ) {
-                  Dictionary.addWord(tfWord.getText(), taMeaning.getText(), tfCategory.getText());
+                  Dictionary.addWord(tfWord.getText(), taMeaning.getText(), tfCategory.getSelectedItem().toString());
                   tfWord.setText("");
                   taMeaning.setText("");
-                  tfCategory.setText("");
                   tfWord.requestFocus();
                   JOptionPane.showMessageDialog( AddWordFrame.this, "Added Word Successfully!","Add Word", JOptionPane.INFORMATION_MESSAGE);
              }
