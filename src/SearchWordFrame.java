@@ -97,9 +97,9 @@ public class SearchWordFrame extends JFrame {
         gbc.gridx = 1;
         gbc.gridwidth = 2;
         gbc.gridheight = 2;
-        taMeaning.setRows(6);
-        taMeaning.setColumns(30);
-        taMeaning.setLineWrap(true);
+        taRelated.setRows(6);
+        taRelated.setColumns(30);
+        taRelated.setLineWrap(true);
         JScrollPane sp1 = new JScrollPane(taRelated, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         c.add(sp1, gbc);
 
